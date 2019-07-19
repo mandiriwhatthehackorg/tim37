@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Mandiri Hack</string>
+
+    <string name="general_termAndCondition">Syarat dan Ketentuan</string>
+    <string name="general_PermissionNeeded">Izin Dibutuhkan</string>
+    <string name="general_PermissionNeededDesc">Aplikasi membutuhkan izin anda untuk melanjutkan proses</string>
+    <string name="general_FAQ">FAQ</string>
+    <string name="general_Yes">Ya</string>
+    <string name="general_No">Tidak</string>
+    <string name="general_YES">YA</string>
+    <string name="general_NO">TIDAK</string>
+    <string name="general_areYouSure">Apakah Anda yakin?</string>
+    <string name="general_submit">Submit</string>
+    <string name="general_later">Nanti</string>
+    <string name="general_cancel">Batalkan</string>
+    <string name="general_veryBad">Sangat Buruk</string>
+    <string name="general_notBad">Biasa</string>
+    <string name="general_quiteOk">Bagus</string>
+    <string name="general_veryGood">Sangat Bagus!</string>
+    <string name="general_excellent">Luar Biasa!!</string>
+    <string name="general_report">Laporkan</string>
+    <string name="general_done">Selesai</string>
+    <string name="general_success">Berhasil</string>
+    <string name="general_error">Error</string>
+    <string name="general_close">Tutup</string>
+    <string name="general_userFound">pengguna Ditemukan</string>
+    <string name="general_userNotFound">pengguna Tidak Ditemukan</string>
+    <string name="general_name">Nama</string>
+    <string name="general_phone">Nomor Ponsel</string>
+    <string name="general_email">Email</string>
+    <string name="general_category">Kategori</string>
+    <string name="general_org">Organisasi</string>
+    <string name="general_pengguna">Pengguna</string>
+    <string name="general_role">Peran</string>
+    <string name="general_guest">Tamu</string>
+    <string name="general_timeStart">Waktu Mulai</string>
+    <string name="general_timeEnd">Waktu Berakhir</string>
+    <string name="general_location">Tempat</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

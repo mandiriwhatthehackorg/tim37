@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1015545342292",
+    "firebase_url": "https://mandirihack.firebaseio.com",
+    "project_id": "mandirihack",
+    "storage_bucket": "mandirihack.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015545342292:android:8983cc18d82b84e0",
+        "android_client_info": {
+          "package_name": "com.essensift.mandirihack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1015545342292-gijtq83mkftadcus70sc66p2ou2j5acs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.essensift.mandirihack",
+            "certificate_hash": "0ab1715f1b2a901c98c7b2645e65b6b6666ec16f"
+          }
+        },
+        {
+          "client_id": "1015545342292-tjrlirmb67roicmic2vmg4cpnj2ek69e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJuD90lOdyf1tg43gbyNFlUzRgCxcjTeU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1015545342292-tjrlirmb67roicmic2vmg4cpnj2ek69e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

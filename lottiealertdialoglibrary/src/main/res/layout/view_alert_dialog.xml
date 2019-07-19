@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/background_alert_view"
+        android:paddingStart="10dp"
+        android:paddingTop="40dp"
+        android:paddingEnd="10dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_horizontal"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_buyuk"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="8dp"
+            android:gravity="center_horizontal"
+            android:text=""
+            android:textColor="@color/gray_text"
+            android:textSize="@dimen/text_orta"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvDescription"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editTextDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppins_light2"
+                android:hint="description here"
+                android:lines="3"
+                android:scrollbars="vertical"
+                android:text=""
+                android:textSize="12sp"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnNegative"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="@dimen/margin_"
+                    android:background="@drawable/background_button"
+                    android:fontFamily="@font/poppins_light2"
+                    android:foreground="?android:selectableItemBackground"
+                    android:paddingStart="@dimen/margin_"
+                    android:paddingEnd="@dimen/margin_"
+                    android:textAllCaps="false"
+                    android:visibility="visible" />
+
+                <Button
+                    android:id="@+id/btnPositive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/background_button"
+                    android:fontFamily="@font/poppins_light2"
+                    android:foreground="?android:selectableItemBackground"
+                    android:paddingStart="@dimen/margin_"
+                    android:paddingEnd="@dimen/margin_"
+                    android:textAllCaps="false"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnNone"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_button"
+                android:fontFamily="@font/poppins_light2"
+                android:foreground="?android:selectableItemBackground"
+                android:paddingStart="@dimen/margin_"
+                android:paddingEnd="@dimen/margin_"
+                android:textAllCaps="false"
+                android:visibility="visible" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp">
+
+        <View
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/background_circle" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lAnimation"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:padding="5dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true" />
+    </RelativeLayout>
+</RelativeLayout>
