@@ -47,6 +47,10 @@ class PayQRFragment : Fragment() {
             .width(cameraViewScanQR.width)
             .build()
 
+        btnScanPay.setOnClickListener {
+            (activity as PaymentActivity).payQR()
+        }
+
         btnScanClose.setOnClickListener {
             (activity as PaymentActivity).backtoHome()
         }

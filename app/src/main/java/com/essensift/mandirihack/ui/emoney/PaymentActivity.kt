@@ -56,19 +56,20 @@ class PaymentActivity : AppCompatActivity() {
                     Fade(),
                     Slide()
                 )
-                GenericEngine.uiThread.postDelayed({
-                    TransitionAnim.performTransitionAnim(
-                        this,
-                        framePaymentFragmentContainer.id,
-                        supportFragmentManager,
-                        PayQRSuccessFragment(),
-                        Fade(),
-                        Slide()
-                    )
-                }, 20000)
             }
         }
 
+    }
+
+    fun payQR() {
+        TransitionAnim.performTransitionAnim(
+            this,
+            framePaymentFragmentContainer.id,
+            supportFragmentManager,
+            PayQRSuccessFragment(),
+            Fade(),
+            Slide()
+        )
     }
 
     fun transitionToNFC() {
