@@ -4,61 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/intrologin2"
     tools:context=".ui.auth.LoginActivity">
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="8dp"
+    <FrameLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="Logo"
-        app:layout_constraintBottom_toTopOf="@+id/etLoginAdminName"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/uc_roundbuttonedgeleft"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.403" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/etLoginAdminName"
+        app:layout_constraintEnd_toEndOf="@+id/etLoginAdminName"
+        app:layout_constraintStart_toStartOf="@+id/etLoginAdminName" />
 
     <EditText
         android:id="@+id/etLoginAdminName"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:hint="Nama Admin"
+        android:layout_marginBottom="26dp"
+        android:hint="Username"
+        android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPassword"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_goneMarginBottom="72dp" />
 
-    <EditText
-        android:id="@+id/etLoginAdminPIN"
-        android:layout_width="300dp"
+    <TextView
+        android:id="@+id/textViewPassword"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:hint="PIN Anda"
+        android:layout_marginBottom="8dp"
+        android:text="Masukkan PIN Anda"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/pinView"
+        app:layout_constraintEnd_toEndOf="@+id/etLoginAdminName"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="@+id/etLoginAdminName" />
+
+    <com.chaos.view.PinView
+        android:id="@+id/pinView"
+        style="@style/PinWidget.PinView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:inputType="textPassword"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etLoginAdminName" />
+        android:visibility="gone"
+        app:itemCount="6"
+        app:itemRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/etLoginAdminName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etLoginAdminName"
+        app:lineColor="@color/colorPrimary"
+        app:viewType="rectangle" />
 
     <Button
         android:id="@+id/btnLoginAdminLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:background="@drawable/uc_roundbuttonprimary"
         android:padding="24dp"
         android:text="Masuk"
-        android:background="@drawable/uc_roundbuttonprimary"
+        android:visibility="gone"
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etLoginAdminPIN" />
+        app:layout_constraintTop_toBottomOf="@+id/pinView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

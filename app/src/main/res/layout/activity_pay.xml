@@ -4,15 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/pay"
     tools:context=".ui.emoney.PayActivity">
 
+    <Button
+        android:id="@+id/btnPayPay"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/uc_roundbuttontrans"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPayReceive" />
+
+    <Button
+        android:id="@+id/btnPayReceive"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="244dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/uc_roundbuttontrans"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginBottom="350dp" />
+
     <FrameLayout
-        android:id="@+id/frameLoginFragmentContainer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="32dp"
+        android:id="@+id/framePayFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

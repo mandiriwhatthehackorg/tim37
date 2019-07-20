@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/receivepay"
+    android:background="@drawable/nfcreceived"
     tools:context=".ui.emoney.PaymentActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,8 +11,10 @@ data class Transaction(
     var originName: String,
     var destinationAccount: String,
     var destinationChannel: String,
-    var destinationName: String
+    var destinationName: String,
+    var investmentAmount: Long,
+    var investmentChannel: String
 ) : Serializable {
 
-    constructor() : this("", 0L, 0L, "", "", "", "", "", "")
+    constructor() : this("", 0L, 0L, "", "", "", "", "", "", 0L, "")
 }

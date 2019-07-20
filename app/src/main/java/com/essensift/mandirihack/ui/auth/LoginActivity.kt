@@ -10,10 +10,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.transition.Fade
+import androidx.transition.Slide
 import com.essensift.mandirihack.R
 import com.essensift.mandirihack.database.DBEngineHelper
+import com.essensift.mandirihack.engine.GenericEngine
 import com.essensift.mandirihack.engine.SharedPref
 import com.essensift.mandirihack.engine.ShowDialog
+import com.essensift.mandirihack.engine.TransitionAnim
 import com.essensift.mandirihack.ui.emoney.EmoneyActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -37,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
 
         mAuth.addAuthStateListener(mAuthStateListener)
 
-        addFragment(LoginFragment(), frameLoginFragmentContainer.id)
+        addFragment(IntroFragment(), frameLoginFragmentContainer.id)
         pbLoginLoading.visibility = View.GONE
 
         if (mAuth.currentUser == null) {
@@ -46,7 +50,18 @@ class LoginActivity : AppCompatActivity() {
 
         Log.d(TAG, "Current User ID ${mAuth.currentUser}")
 
-        askPermission()
+        //askPermission()
+
+        GenericEngine.uiThread.postDelayed({
+            TransitionAnim.performTransitionAnim(
+                this,
+                frameLoginFragmentContainer.id,
+                supportFragmentManager,
+                LoginFragment(),
+                Fade(),
+                Slide()
+            )
+        }, 2000)
     }
 
     private fun askPermission() {
@@ -64,6 +79,7 @@ class LoginActivity : AppCompatActivity() {
     private val mAuthStateListener = FirebaseAuth.AuthStateListener { auth ->
         if (auth.currentUser != null) {
             startActivity(Intent(this, EmoneyActivity::class.java))
+            finish()
         }
     }
 

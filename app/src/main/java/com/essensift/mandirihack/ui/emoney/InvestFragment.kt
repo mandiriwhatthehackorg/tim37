@@ -13,11 +13,10 @@ import com.essensift.mandirihack.database.model.InvestmentTransaction
 import com.essensift.mandirihack.engine.views.DividerItemDecoration
 import com.essensift.mandirihack.engine.views.RecyclerTouchListener
 import com.essensift.mandirihack.ui.emoney.adapter.AdapterRvInvestation
-import org.greenrobot.eventbus.EventBus
 import io.opencensus.trace.MessageEvent
-import kotlinx.android.synthetic.main.fragment_invest.*
-import org.greenrobot.eventbus.ThreadMode
+import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 class InvestFragment : Fragment() {
 
@@ -35,10 +34,12 @@ class InvestFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadDummy()
+
+
+        /*loadDummy()
 
         mAdapter = AdapterRvInvestation(investments, context!!)
-        initRv(rvInvestmentTransaction, mAdapter)
+        initRv(rvInvestmentTransaction, mAdapter)*/
     }
 
     private fun loadDummy(){

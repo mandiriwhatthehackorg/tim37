@@ -13,11 +13,11 @@ import com.essensift.mandirihack.database.model.Transaction
 import com.essensift.mandirihack.engine.views.DividerItemDecoration
 import com.essensift.mandirihack.engine.views.RecyclerTouchListener
 import com.essensift.mandirihack.ui.emoney.adapter.AdapterRvTransaction
-import org.greenrobot.eventbus.EventBus
 import io.opencensus.trace.MessageEvent
 import kotlinx.android.synthetic.main.fragment_transaction.*
-import org.greenrobot.eventbus.ThreadMode
+import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 class TransactionFragment : Fragment() {
 
@@ -44,13 +44,19 @@ class TransactionFragment : Fragment() {
     private fun loadDummy(){
         transactions.add(Transaction("1234567890", System.currentTimeMillis(), 1000L,
             "Mandiri", "Origin Channel", "originName",
-            "1234", "Emoney ", "Soto Padang"))
+            "1234", "Emoney ", "Soto Padang", 0L, ""
+        )
+        )
         transactions.add(Transaction("1234567890", System.currentTimeMillis(), 1000L,
             "Mandiri", "Origin Channel", "originName",
-            "1234", "Emoney ", "Soto Padang"))
+            "1234", "Emoney ", "Soto Padang", 0L, ""
+        )
+        )
         transactions.add(Transaction("1234567890", System.currentTimeMillis(), 1000L,
             "Mandiri", "Origin Channel", "originName",
-            "1234", "Emoney ", "Soto Padang"))
+            "1234", "Emoney ", "Soto Padang", 0L, ""
+        )
+        )
     }
 
     private fun initRv(recyclerView: RecyclerView, adapter: AdapterRvTransaction) {

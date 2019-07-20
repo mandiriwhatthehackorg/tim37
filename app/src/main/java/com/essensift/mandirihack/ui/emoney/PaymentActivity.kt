@@ -1,7 +1,6 @@
 package com.essensift.mandirihack.ui.emoney
 
 import android.Manifest
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,16 +8,21 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.transition.Fade
+import androidx.transition.Slide
 import com.essensift.mandirihack.R
+import com.essensift.mandirihack.engine.GenericEngine
+import com.essensift.mandirihack.engine.TransitionAnim
 import github.nisrulz.qreader.QREader
 import io.opencensus.trace.MessageEvent
 import kotlinx.android.synthetic.main.activity_pay.*
+import kotlinx.android.synthetic.main.activity_payment.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import pub.devrel.easypermissions.EasyPermissions
 
-class PayActivity : AppCompatActivity() {
+class PaymentActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "PAY_ACTIVITY"
@@ -28,22 +32,50 @@ class PayActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pay)
+        setContentView(R.layout.activity_payment)
 
         checkPermission()
 
-        btnPayPay.setOnClickListener {
-            val i = Intent(this, PaymentActivity::class.java)
-            i.putExtra("ID", "QR")
-            startActivity(i)
-            overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up)
-        }
-
-        btnPayReceive.setOnClickListener {
-            val i = Intent(this, PaymentActivity::class.java)
-            i.putExtra("ID", "NFC")
-            startActivity(i)
-            overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up)
+        intent?.getStringExtra("ID")?.let {
+            if (it == "NFC") {
+                TransitionAnim.performTransitionAnim(
+                    this,
+                    framePaymentFragmentContainer.id,
+                    supportFragmentManager,
+                    PayNFCFragment(),
+                    Fade(),
+                    Slide()
+                )
+                GenericEngine.uiThread.postDelayed({
+                    TransitionAnim.performTransitionAnim(
+                        this,
+                        framePaymentFragmentContainer.id,
+                        supportFragmentManager,
+                        PayNFCSuccessFragment(),
+                        Fade(),
+                        Slide()
+                    )
+                }, 4000)
+            } else {
+                TransitionAnim.performTransitionAnim(
+                    this,
+                    framePaymentFragmentContainer.id,
+                    supportFragmentManager,
+                    PayQRFragment(),
+                    Fade(),
+                    Slide()
+                )
+                GenericEngine.uiThread.postDelayed({
+                    TransitionAnim.performTransitionAnim(
+                        this,
+                        framePaymentFragmentContainer.id,
+                        supportFragmentManager,
+                        PayQRSuccessFragment(),
+                        Fade(),
+                        Slide()
+                    )
+                }, 6000)
+            }
         }
 
     }
@@ -76,7 +108,12 @@ class PayActivity : AppCompatActivity() {
             Log.d(TAG, "Camera run!")
         } else {
             // Do not have permissions, request them now
-            EasyPermissions.requestPermissions(this, getString(R.string.general_PermissionNeeded), 2, *perms)
+            EasyPermissions.requestPermissions(
+                this,
+                getString(R.string.general_PermissionNeeded),
+                2,
+                *perms
+            )
         }
     }
 

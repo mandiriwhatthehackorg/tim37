@@ -10,20 +10,47 @@
         android:id="@+id/viewPagerDriveFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/navBottomDrive"
+        app:layout_constraintBottom_toTopOf="@+id/space"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navBottomEmoney"
+    <com.luseen.spacenavigation.SpaceNavigationView
+        android:id="@+id/space"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:itemIconTint="@color/colorWhite"
-        app:itemTextColor="@color/colorWhite"
-        app:labelVisibilityMode="labeled"
+        android:layout_height="64dp"
+        android:layout_gravity="bottom"
+        app:active_item_color="@color/black"
+        app:centre_button_color="@color/white"
+        app:centre_button_icon="@drawable/ic_payment_black_24dp"
+        app:inactive_item_color="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_nav" />
+        app:space_background_color="@color/colorPrimary" />
+
+    <!--
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navBottomEmoney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:itemIconTint="@color/colorWhite"
+            app:itemTextColor="@color/colorWhite"
+            app:labelVisibilityMode="unlabeled"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:menu="@menu/bottom_nav" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:elevation="9dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    -->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

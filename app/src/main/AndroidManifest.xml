@@ -24,6 +24,15 @@
             android:name=".ui.emoney.EmoneyActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ui.emoney.PaymentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.emoney.CardListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.emoney.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ui.emoney.PayActivity"
             android:screenOrientation="portrait" />
         <activity

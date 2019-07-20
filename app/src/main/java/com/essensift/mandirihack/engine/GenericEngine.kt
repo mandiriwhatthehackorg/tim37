@@ -16,16 +16,6 @@ object GenericEngine {
     fun signOut(activity: Activity) {
         FirebaseAuth.getInstance().signOut()
         activity.startActivity(Intent(activity, LoginActivity::class.java))
-        SharedPref.editPref(
-            SharedPref.getPref(activity, SharedPref.PREF_ID),
-            SharedPref.LATEST_LOGIN_ID,
-            ""
-        )
-        SharedPref.editPref(
-            SharedPref.getPref(activity, SharedPref.PREF_ID),
-            SharedPref.LATEST_LOGIN_ADMIN,
-            false
-        )
         activity.finish()
     }
 
