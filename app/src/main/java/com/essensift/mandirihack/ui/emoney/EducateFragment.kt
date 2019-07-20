@@ -10,12 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.essensift.mandirihack.R
 import com.essensift.mandirihack.database.model.FiestaPoint
-import com.essensift.mandirihack.engine.GenericEngine
 import com.essensift.mandirihack.engine.views.DividerItemDecoration
 import com.essensift.mandirihack.engine.views.RecyclerTouchListener
 import com.essensift.mandirihack.ui.emoney.adapter.AdapterRvPoint
 import io.opencensus.trace.MessageEvent
-import kotlinx.android.synthetic.main.fragment_educate.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -36,14 +34,14 @@ class EducateFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadDummy()
+        /*loadDummy()
 
         mAdapter = AdapterRvPoint(pointsTransaction, context!!)
         initRv(rvPointHistory, mAdapter)
 
         btnPointLogout.setOnClickListener {
             GenericEngine.signOut(activity!!)
-        }
+        }*/
     }
 
     private fun loadDummy(){

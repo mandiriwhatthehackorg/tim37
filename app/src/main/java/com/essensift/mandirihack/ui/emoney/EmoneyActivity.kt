@@ -39,14 +39,15 @@ class EmoneyActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks 
         viewPagerDriveFragment.adapter = adapter
         viewPagerDriveFragment.offscreenPageLimit = 4
 
-        space.addSpaceItem(SpaceItem("MANAGE", R.drawable.ic_payment_black_24dp))
-        space.addSpaceItem(SpaceItem("TRANSACTION", R.drawable.ic_payment_black_24dp))
-        space.addSpaceItem(SpaceItem("INVESTMENT", R.drawable.ic_payment_black_24dp))
-        space.addSpaceItem(SpaceItem("POINTS", R.drawable.ic_payment_black_24dp))
+        space.addSpaceItem(SpaceItem("MANAGE", R.drawable.ic_icn_home))
+        space.addSpaceItem(SpaceItem("TRANSACTION", R.drawable.ic_icn_profile))
+        space.addSpaceItem(SpaceItem("INVESTMENT", R.drawable.ic_icn_invest))
+        space.addSpaceItem(SpaceItem("POINTS", R.drawable.ic_icn_point))
         space.showIconOnly()
         space.setSpaceOnClickListener(object : SpaceOnClickListener {
             override fun onCentreButtonClick() {
                 startActivity(Intent(this@EmoneyActivity, PayActivity::class.java))
+                overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up)
             }
 
             override fun onItemReselected(itemIndex: Int, itemName: String?) {

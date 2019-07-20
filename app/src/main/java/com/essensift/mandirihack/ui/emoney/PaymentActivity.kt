@@ -1,6 +1,7 @@
 package com.essensift.mandirihack.ui.emoney
 
 import android.Manifest
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -42,20 +43,10 @@ class PaymentActivity : AppCompatActivity() {
                     this,
                     framePaymentFragmentContainer.id,
                     supportFragmentManager,
-                    PayNFCFragment(),
+                    ReceivePaymentFragment(),
                     Fade(),
                     Slide()
                 )
-                GenericEngine.uiThread.postDelayed({
-                    TransitionAnim.performTransitionAnim(
-                        this,
-                        framePaymentFragmentContainer.id,
-                        supportFragmentManager,
-                        PayNFCSuccessFragment(),
-                        Fade(),
-                        Slide()
-                    )
-                }, 4000)
             } else {
                 TransitionAnim.performTransitionAnim(
                     this,
@@ -74,10 +65,37 @@ class PaymentActivity : AppCompatActivity() {
                         Fade(),
                         Slide()
                     )
-                }, 6000)
+                }, 20000)
             }
         }
 
+    }
+
+    fun transitionToNFC() {
+        TransitionAnim.performTransitionAnim(
+            this,
+            framePaymentFragmentContainer.id,
+            supportFragmentManager,
+            PayNFCFragment(),
+            Fade(),
+            Slide()
+        )
+        GenericEngine.uiThread.postDelayed({
+            TransitionAnim.performTransitionAnim(
+                this,
+                framePaymentFragmentContainer.id,
+                supportFragmentManager,
+                PayNFCSuccessFragment(),
+                Fade(),
+                Slide()
+            )
+        }, 4000)
+    }
+
+    fun backtoHome() {
+        startActivity(Intent(this, EmoneyActivity::class.java))
+        overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down)
+        finish()
     }
 
     fun closeFragment() {

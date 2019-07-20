@@ -48,6 +48,11 @@ class PayActivity : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down)
+    }
+
     fun closeFragment() {
         framePayFragmentContainer.visibility = View.GONE
     }

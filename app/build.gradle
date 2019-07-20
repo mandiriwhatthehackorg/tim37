@@ -58,6 +58,7 @@ dependencies {
     implementation 'pub.devrel:easypermissions:3.0.0'
     implementation 'com.github.nisrulz:qreader:2.1.2'
     implementation 'com.chaos.view:pinview:1.4.3'
+    implementation 'com.google.android.gms:play-services-vision:17.0.2'
     implementation 'com.github.armcha:SpaceNavigationView:1.6.0'
     implementation project(':lottiealertdialoglibrary')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'

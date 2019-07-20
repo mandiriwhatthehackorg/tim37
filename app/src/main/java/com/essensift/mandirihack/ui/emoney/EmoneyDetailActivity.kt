@@ -14,6 +14,11 @@ class EmoneyDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_emoney_detail)
 
         initSpinnerDriverList(spinnerCardDetailPilihanInvest)
+
+        btnEmoneyDetailSave.setOnClickListener {
+            super.onBackPressed()
+            overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down)
+        }
     }
 
     override fun onBackPressed() {
@@ -24,8 +29,11 @@ class EmoneyDetailActivity : AppCompatActivity() {
     private val spinnerArray = ArrayList<String>()
     private fun initSpinnerDriverList(view: Spinner) {
         spinnerArray.clear()
-        spinnerArray.add("Emas")
-        spinnerArray.add("Reksadana")
+        spinnerArray.add("Gold")
+        spinnerArray.add("Mutual Fund (Mandiri Investa Aktif)")
+        spinnerArray.add("Mutual Fund (Mandiri Investa Syariah Berimbang")
+        spinnerArray.add("Mutual Fund (Mandiri Investa Atraktif)")
+        spinnerArray.add("Mutual Fund (Syailendra Balanced Opportunity Fund)")
         val adapter = ArrayAdapter(view.context, android.R.layout.simple_spinner_item, spinnerArray)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         view.adapter = adapter

@@ -10,11 +10,11 @@ import com.essensift.mandirihack.R
 import com.essensift.mandirihack.engine.GenericEngine
 import github.nisrulz.qreader.QRDataListener
 import github.nisrulz.qreader.QREader
-import org.greenrobot.eventbus.EventBus
 import io.opencensus.trace.MessageEvent
 import kotlinx.android.synthetic.main.fragment_scan_qr.*
-import org.greenrobot.eventbus.ThreadMode
+import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 class PayQRFragment : Fragment() {
 
@@ -46,6 +46,10 @@ class PayQRFragment : Fragment() {
             .height(cameraViewScanQR.height)
             .width(cameraViewScanQR.width)
             .build()
+
+        btnScanClose.setOnClickListener {
+            (activity as PaymentActivity).backtoHome()
+        }
     }
 
     override fun onStop() {

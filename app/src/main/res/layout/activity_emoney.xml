@@ -20,9 +20,10 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_gravity="bottom"
-        app:active_item_color="@color/black"
+        app:active_item_color="@color/colorEmasMandiri"
         app:centre_button_color="@color/white"
-        app:centre_button_icon="@drawable/ic_payment_black_24dp"
+        app:centre_button_icon="@drawable/ic_icn_qr"
+        app:inactive_centre_button_icon_color="@color/black"
         app:inactive_item_color="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:space_background_color="@color/colorPrimary" />
