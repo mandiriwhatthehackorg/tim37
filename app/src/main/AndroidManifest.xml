@@ -25,6 +25,9 @@
         <activity android:name=".ui.emoney.EmoneyDetailActivity"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".ui.emoney.GuideActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ui.emoney.EmoneyActivity"
             android:screenOrientation="portrait" />
         <activity

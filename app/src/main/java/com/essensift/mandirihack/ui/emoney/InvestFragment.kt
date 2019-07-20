@@ -35,7 +35,10 @@ class InvestFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        /*Glide.with(this).asBitmap().load(R.drawable.invest).apply(
+            RequestOptions()
+        ).into(imgBackgroundImage)
+*/
         /*loadDummy()
 
         mAdapter = AdapterRvInvestation(investments, context!!)

@@ -16,9 +16,8 @@ import com.essensift.mandirihack.R
 import com.essensift.mandirihack.database.DBEngineHelper
 import com.essensift.mandirihack.engine.GenericEngine
 import com.essensift.mandirihack.engine.SharedPref
-import com.essensift.mandirihack.engine.ShowDialog
 import com.essensift.mandirihack.engine.TransitionAnim
-import com.essensift.mandirihack.ui.emoney.EmoneyActivity
+import com.essensift.mandirihack.ui.emoney.GuideActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_login.*
@@ -78,17 +77,18 @@ class LoginActivity : AppCompatActivity() {
 
     private val mAuthStateListener = FirebaseAuth.AuthStateListener { auth ->
         if (auth.currentUser != null) {
-            startActivity(Intent(this, EmoneyActivity::class.java))
-            finish()
+            /*startActivity(Intent(this, EmoneyActivity::class.java))
+            finish()*/
         }
     }
 
     fun loginUserAnonymously() {
         Log.d(TAG, "Remove auth listener")
-        mAuth.removeAuthStateListener(mAuthStateListener)
+        /*mAuth.removeAuthStateListener(mAuthStateListener)
         mAuth.signInAnonymously().addOnCompleteListener {
             if (it.isSuccessful) {
-
+                startActivity(Intent(this, EmoneyActivity::class.java))
+                finish()
             } else {
                 ShowDialog.showErrorDialog(
                     this,
@@ -96,7 +96,9 @@ class LoginActivity : AppCompatActivity() {
                 )
             }
             mAuth.addAuthStateListener(mAuthStateListener)
-        }
+        }*/
+        startActivity(Intent(this, GuideActivity::class.java))
+        finish()
     }
 
     override fun onDestroy() {

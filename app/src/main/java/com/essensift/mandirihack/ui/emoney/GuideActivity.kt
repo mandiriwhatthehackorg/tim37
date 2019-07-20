@@ -8,70 +8,32 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.essensift.mandirihack.R
 import com.essensift.mandirihack.engine.views.ViewPagerAdapterSaveState
-import com.luseen.spacenavigation.SpaceItem
-import com.luseen.spacenavigation.SpaceOnClickListener
 import io.opencensus.trace.MessageEvent
-import kotlinx.android.synthetic.main.activity_bottom_navigation.viewPagerDriveFragment
-import kotlinx.android.synthetic.main.activity_emoney.*
+import kotlinx.android.synthetic.main.activity_guide.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import pub.devrel.easypermissions.EasyPermissions
 
 
-class EmoneyActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
+class GuideActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
     companion object {
         private const val TAG = "DRIVE_ACTIVITY"
     }
 
-    private val adapter: ViewPagerAdapterSaveState = ViewPagerAdapterSaveState(supportFragmentManager)
+    private val adapter: ViewPagerAdapterSaveState =
+        ViewPagerAdapterSaveState(supportFragmentManager)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_emoney)
+        setContentView(R.layout.activity_guide)
 
-        adapter.addFragment(ManageFragment(), "Atur E-Money")
-        adapter.addFragment(TransactionFragment(), "Transaksi")
+        adapter.addFragment(GuideFragment.newInstance("0"), "")
+        adapter.addFragment(GuideFragment.newInstance("1"), "")
+        adapter.addFragment(GuideFragment.newInstance("2"), "")
 
-        adapter.addFragment(InvestFragment(), "Investasi")
-        adapter.addFragment(EducateFragment(), "Edukasi")
-
-        viewPagerDriveFragment.adapter = adapter
-        viewPagerDriveFragment.offscreenPageLimit = 1
-
-        space.addSpaceItem(SpaceItem("MANAGE", R.drawable.ic_icn_home))
-        space.addSpaceItem(SpaceItem("TRANSACTION", R.drawable.ic_icn_profile))
-        space.addSpaceItem(SpaceItem("INVESTMENT", R.drawable.ic_icn_invest))
-        space.addSpaceItem(SpaceItem("POINTS", R.drawable.ic_icn_point))
-        space.showIconOnly()
-        space.setSpaceOnClickListener(object : SpaceOnClickListener {
-            override fun onCentreButtonClick() {
-                startActivity(Intent(this@EmoneyActivity, PayActivity::class.java))
-                overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up)
-            }
-
-            override fun onItemReselected(itemIndex: Int, itemName: String?) {
-
-            }
-
-            override fun onItemClick(itemIndex: Int, itemName: String?) {
-                when (itemIndex) {
-                    0 -> {
-                        viewPagerDriveFragment.setCurrentItem(0, false)
-                    }
-                    1 -> {
-                        viewPagerDriveFragment.setCurrentItem(1, false)
-                    }
-                    2 -> {
-                        viewPagerDriveFragment.setCurrentItem(2, false)
-                    }
-                    3 -> {
-                        viewPagerDriveFragment.setCurrentItem(3, false)
-                    }
-                }
-            }
-
-        })
+        viewPager.adapter = adapter
+        viewPager.offscreenPageLimit = 3
 
         /*navBottomEmoney.setOnNavigationItemSelectedListener {
             when (it.itemId) {
@@ -93,6 +55,20 @@ class EmoneyActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks 
             }
             true
         }*/
+    }
+
+    fun prosesButton(i: Int, next: Boolean) {
+        if (next) {
+            if (i == 2)
+                startActivity(Intent(this, EmoneyActivity::class.java))
+            else
+                viewPager.setCurrentItem(i + 1, false)
+        } else {
+            if (i != 0) {
+                viewPager.setCurrentItem(i - 1, false)
+            }
+        }
+
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

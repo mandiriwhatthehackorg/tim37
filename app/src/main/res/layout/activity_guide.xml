@@ -4,30 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.emoney.EmoneyActivity">
+    tools:context=".ui.emoney.GuideActivity">
 
-    <com.essensift.mandirihack.engine.views.NonSwipeableViewPager
-        android:id="@+id/viewPagerDriveFragment"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/space"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <com.luseen.spacenavigation.SpaceNavigationView
-        android:id="@+id/space"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_gravity="bottom"
-        app:active_item_color="@color/colorEmasMandiri"
-        app:centre_button_color="@color/white"
-        app:centre_button_icon="@drawable/ic_icn_qr"
-        app:inactive_centre_button_icon_color="@color/black"
-        app:inactive_item_color="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:space_background_color="@color/colorPrimary" />
-
     <!--
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navBottomEmoney"
